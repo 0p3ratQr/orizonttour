@@ -1,0 +1,898 @@
+body {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+.Section-Side-Padding {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.Navbar {
+  width: 100%;
+  display: flex;
+  font-size: medium;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+}
+
+.pages-conteiner {
+  display: flex;
+  gap: 5rem;
+  align-items: baseline;
+  top: 0; /* Привязываем меню к верхнему краю Navbar */
+  right: 0; /* Привязываем меню к правому краю Navbar */
+  z-index: 10; /* Чтобы меню не перекрывалось другими элементами */
+}
+
+.pages-conteiner-item {
+  text-decoration: none;
+  color: #0b2727;
+}
+
+.pages-conteiner-item:hover {
+  color: #faa935;
+  transition: color 0.5s;
+}
+
+.brand-logo-item {
+  width: 90%;
+}
+
+/* Гамбургер */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 2rem;
+  height: 0.2rem;
+  background-color: #0b2727;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.pages-conteiner.active {
+  display: flex; /* Показываем меню при активации */
+}
+/* Для мобильных устройств */
+@media (max-width: 1054px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .pages-conteiner {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: #faa935 1.5px solid;
+  }
+
+  .pages-conteiner.active {
+    display: flex;
+  }
+
+  .pages-conteiner-item {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+.HeroSection {
+  width: 100%;
+  padding-top: 7rem;
+  padding-bottom: 15%;
+}
+.HeroSection-Content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 8rem;
+  align-items: center;
+}
+
+.HeroSection-Content h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+.HeroSection-Content p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #6e7074;
+}
+/*
+      .HeroSection-Content-Item-Button {
+      display: inline-block; 
+      padding: 2rem 5rem; 
+      font-size: 2rem; 
+      font-weight: bold; 
+      text-align: center; 
+      border: none; 
+      border-radius: 5px; 
+      background-color: #007bff; 
+      color: #fff; 
+      cursor: pointer; 
+    } 
+    .HeroSection-Content-Item-Button:hover {
+      background-color: #0056b3; 
+    }
+*/
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Легкое смещение вниз для эффекта */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.HeroSection-Content-Right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 1rem;
+  opacity: 0; /* Скрыто изначально */
+  animation: fadeIn 1s ease-out forwards; /* Анимация проявления */
+  animation-delay: 0.5s; /* Задержка для синхронизации */
+}
+
+.accent-word {
+  color: #faa935;
+}
+.HeroSection-Content-Left {
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.HeroSection-Content-Left-Item {
+  border: 3px solid #faa935;
+  border-radius: 2.3rem;
+  width: 225px;
+  margin-top: 0;
+  opacity: 0; /* Начальное состояние */
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.HeroSection-Content-Left-Item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.HeroSection-Content-Left-Item:nth-child(2) {
+  margin-top: 1.5rem;
+  animation-delay: 0.4s;
+}
+
+.HeroSection-Content-Left-Item:nth-child(3) {
+  margin-top: 3rem;
+  animation-delay: 0.6s;
+}
+
+@media (max-width: 1024px) {
+  .HeroSection-Content {
+    flex-direction: column;
+  }
+  .HeroSection-Content-Right {
+    width: 100%;
+    text-align: center;
+  }
+  .HeroSection-Content-Left {
+    display: none;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1324px) {
+  .HeroSection-Content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .HeroSection-Content-Right {
+    width: 100%;
+    text-align: center;
+  }
+  .HeroSection-Content-Left {
+    width: 100%;
+    justify-content: center;
+  }
+  .pages-conteiner {
+    gap: 2.5rem;
+  }
+}
+.Countries-Section {
+  padding-bottom: 12%;
+}
+.Countries-Section-Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+.Countries-Section-Content-Upper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#accent-theme {
+  background-color: #faa935;
+  width: 60px;
+  padding: 0.25rem 1rem;
+  border-radius: 7rem;
+  font-family: "Island Moments", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.75rem;
+}
+#accent-theme-nav {
+  background-color: #faa935;
+  padding: 0.25rem 1rem;
+  border-radius: 7rem;
+  font-family: "Great Vibes", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+#accent-theme-nav:hover {
+  color: #ffffff;
+  transition: color 0.5s;
+}
+.Countries-Section-Content-DownGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, auto));
+  grid-auto-rows: 250px;
+  gap: 1.5rem;
+}
+
+.grid-item {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: "Arial, sans-serif";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+.grid-item:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.grid-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: inherit;
+  transform: scale(1);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+.grid-item:nth-child(1) {
+  grid-column: span 1;
+  grid-row: span 2;
+  animation-delay: 0s;
+}
+
+.grid-item:nth-child(2) {
+  grid-column: span 1;
+  grid-row: span 1;
+  animation-delay: 0.2s;
+}
+
+.grid-item:nth-child(3) {
+  grid-column: span 1;
+  grid-row: span 1;
+  animation-delay: 0.4s;
+}
+
+.grid-item:nth-child(4) {
+  grid-column: span 1;
+  grid-row: span 2;
+  animation-delay: 0.6s;
+}
+
+.grid-item:nth-child(5) {
+  grid-column: span 2;
+  grid-row: span 1;
+  animation-delay: 0.8s;
+}
+
+@media (max-width: 1024px) {
+  .Countries-Section-Content-DownGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 1.5rem;
+  }
+  .grid-item {
+    grid-column: span 2; /* Каждый элемент занимает две колонки */
+    grid-row: span 1; /* Каждый элемент занимает одну строку */
+    animation-delay: 0s; /* Общий стиль для анимации */
+  }
+
+  .grid-item:nth-child(1) {
+    grid-column: span 2; /* Каждый элемент занимает две колонки */
+    grid-row: span 1; /* Каждый элемент занимает одну строку */
+    animation-delay: 0s; /* Анимация для первого элемента */
+  }
+
+  .grid-item:nth-child(2) {
+    grid-column: span 2; /* Каждый элемент занимает две колонки */
+    grid-row: span 1; /* Каждый элемент занимает одну строку */
+    animation-delay: 0.2s;
+  }
+
+  .grid-item:nth-child(3) {
+    grid-column: span 2; /* Каждый элемент занимает две колонки */
+    grid-row: span 1; /* Каждый элемент занимает одну строку */
+    animation-delay: 0.4s;
+  }
+
+  .grid-item:nth-child(4) {
+    grid-column: span 2; /* Каждый элемент занимает две колонки */
+    grid-row: span 1; /* Каждый элемент занимает одну строку */
+    animation-delay: 0.6s;
+  }
+
+  .grid-item:nth-child(5) {
+    grid-column: span 2; /* Каждый элемент занимает две колонки */
+    grid-row: span 1; /* Каждый элемент занимает одну строку */
+    animation-delay: 0.8s;
+  }
+}
+.Footer-Section {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.Footer-Section-Links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 33%;
+  align-items: center;
+  text-align: center;
+}
+.Footer-Section-Links p {
+  width: 70%;
+  color: #6e7074;
+  font-weight: 400;
+  font-size: 1rem;
+}
+#Footer-Section-Links-BrandLogo {
+  width: 50%;
+}
+.Footer-Section-Links-SocialImages {
+  display: flex;
+  flex-direction: row;
+  gap: 1.3rem;
+}
+.Footer-Section-Links-SocialImages img {
+  width: 40px;
+}
+#Rights {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #6e7074;
+}
+.Footer-Section-Pages {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-items: center;
+  width: 33%;
+}
+.Footer-Link {
+  text-decoration: none;
+  color: #6e7074;
+}
+.Footer-Link:hover {
+  color: #faa935;
+  transition: color 0.5s;
+}
+.Footer-Section-Pages h2:nth-last-child(-n + 3) {
+  color: #6e7074;
+  font-weight: 500;
+  font-size: 1.35;
+}
+.Footer-Section-Contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 33%;
+}
+.Footer-Section-Contact-Item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.Footer-Section-Contact-Item img {
+  width: 20px;
+  height: 20px;
+}
+.Footer-Section-Contact-Item h2 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.gray-accent {
+  color: #6e7074;
+
+  font-weight: 400;
+}
+@media (max-width: 1024px) {
+  .Footer-Section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    width: 100%;
+  }
+  #Footer-Section-Links-BrandLogo {
+    width: 250px;
+  }
+  .Footer-Section-Links {
+    width: 100%;
+  }
+  .Footer-Section-Contact {
+    width: 100%;
+    margin-bottom: 2rem;
+    align-items: center;
+  }
+}
+
+/* Анимация для фона */
+.AllTours-Content {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40vh;
+  text-align: center;
+  align-content: center;
+  opacity: 0; /* Начальное состояние фона — скрыто */
+  animation: fadeInBackground 2s ease forwards; /* Плавное появление фона */
+  margin-bottom: 5%;
+}
+
+/* Анимация для текста */
+.AllTours-Content h1 {
+  color: #fff;
+  font-weight: 600;
+  font-size: 4.5rem;
+  opacity: 0; /* Начальное состояние текста — скрыто */
+  animation: fadeInText 1.5s ease 0.5s forwards; /* Плавное появление текста с задержкой */
+}
+
+/* Анимация для фона */
+@keyframes fadeInBackground {
+  0% {
+    opacity: 0; /* Фон полностью скрыт */
+  }
+  100% {
+    opacity: 1; /* Фон проявляется */
+  }
+}
+
+/* Анимация для текста */
+@keyframes fadeInText {
+  0% {
+    opacity: 0; /* Текст полностью скрыт */
+    transform: translateY(20px); /* Начальное смещение вниз */
+  }
+  100% {
+    opacity: 1; /* Текст проявляется */
+    transform: translateY(0); /* Возвращается в исходное положение */
+  }
+}
+
+/* Цвет для акцента */
+.accent-orange {
+  color: #faa935;
+}
+
+#Countries-Section-Content-Upper-ToursItem {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.AboutUs-Section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+.AboutUs-Section-Content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5rem;
+  width: 80%;
+}
+.AboutUs-Section-Content-TextSide {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  opacity: 0; /* Начальное состояние — скрыто */
+  animation: slideInFromLeft 1.5s ease forwards; /* Появление текста с анимацией движения */
+}
+.AboutUs-Section-Content-TextSide-Item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0; /* Начальное состояние — скрыто */
+  animation: fadeInText 1s ease forwards; /* Анимация появления текста */
+  animation-delay: 0.5s; /* Задержка для каждого элемента текста */
+}
+.AboutUs-Section-Content-TextSide-Item h2 {
+  font-weight: 500;
+  font-size: 2.2rem;
+}
+.AboutUs-Section-Content-TextSide-Item p {
+  color: #0b2727;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+/* Анимация для изображения */
+.AboutUs-Section-Content-ImageSide img {
+  opacity: 0; /* Начальное состояние — скрыто */
+  animation: fadeInImage 1.5s ease 1s forwards; /* Появление изображения */
+}
+@media (max-width: 1024px) {
+  .AboutUs-Section-Content {
+    display: flex;
+    flex-direction: column;
+  }
+  .AboutUs-Section {
+    align-items: center;
+  }
+  .AboutUs-Section-Content-ImageSide {
+    width: 80%;
+  }
+}
+@media (max-width: 764px) {
+  .AboutUs-Section-Content-ImageSide {
+    display: none;
+  }
+}
+/* Анимация для текста (вход с левого края) */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(
+      -100px
+    ); /* Начальная позиция текста слева за пределами экрана */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Текст перемещается в исходное положение */
+  }
+}
+
+/* Анимация для текста (простое появление) */
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1; /* Текст плавно появляется */
+  }
+}
+
+/* Анимация для изображения (плавное проявление) */
+@keyframes fadeInImage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1; /* Изображение плавно появляется */
+  }
+}
+
+.Request-Section-Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3%;
+  margin-bottom: 5%;
+}
+.Request-Section-Content-Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Request-Section-Content-Form-Labels {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 5rem;
+  align-items: center;
+}
+.Request-Section-Content-Form input {
+  padding: 1rem 1.5rem;
+  width: auto;
+}
+
+form {
+  margin: 0 auto;
+}
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+select,
+button {
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+button {
+  background-color: #faa935;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #e88c0c;
+}
+input {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  overflow-x: scroll;
+}
+
+input:focus {
+  border-color: #faa935;
+  box-shadow: 0 0 5px #e88c0c;
+}
+.Request-Section-Content-Form-Group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.Request-Section-Content-Form-Group label {
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  background-color: white;
+  padding: 0 0.2rem;
+  font-size: 0.75rem;
+  color: #000000;
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+.Request-Section-Content-Form-Group input {
+  width: 100%;
+  padding: 10px;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  color: #080808;
+  overflow-y: scroll;
+}
+/* Цвет placeholder */
+input::placeholder {
+  color: #aaa; /* Цвет текста placeholder */
+  font-style: italic; /* Например, курсив */
+}
+.Request-Section-Content h1 {
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+@media (max-width: 764px) {
+  .Request-Section-Content-Form-Labels {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+  .Request-Section-Content-Form-Group input {
+    width: auto;
+  }
+  .Request-Section-Content-Form-Group {
+    margin-bottom: 0rem;
+  }
+  .Request-Section-Content {
+    margin-bottom: 20%;
+  }
+}
+
+.Month {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+.Month-Name {
+  color: #faa935;
+  font-size: 2rem;
+  font-weight: 800;
+}
+.Month-Hotel-Card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-bottom: #888888 1px solid;
+  height: 150px;
+  max-width: 100%;
+}
+
+.Hotel-Name {
+  font-size: 1.05rem;
+  font-weight: 650;
+
+  text-align: center;
+}
+
+.Hotel-Stars {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.25rem;
+}
+
+.Hotel-Stars-Item {
+  width: 20px;
+  height: 20px;
+}
+
+.Hotel-Price-Days {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  width: 90%;
+  padding-bottom: 15px;
+}
+.Hotel-Price-Days h3 {
+  margin: 0;
+  padding: 0;
+}
+.Hotel-Name-Stars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 300px;
+}
+
+/* Стили для скроллбара (необязательно) */
+.Month::-webkit-scrollbar {
+  width: 8px;
+}
+
+.Month::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.Month::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.Month-Conteiner {
+  flex-wrap: wrap; /* Разрешает перенос элементов на новую строку */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10%;
+  gap: 0.5rem;
+}
+.Month-Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-height: calc(
+    5 * 125px
+  ); /* Ограничение высоты под 5 карточек (примерная высота одной карточки 150px, уточните если нужно) */
+  overflow-y: auto; /* Добавление вертикального скролла */
+  padding-right: 1rem; /* Добавляем отступ для скроллбара */
+  scrollbar-width: thin; /* Тонкий скролл для Firefox */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06); /* Мягкая тень */
+}
+.accent-number {
+  color: #e88c0c;
+  font-size: 1.5rem;
+}
+
+/* Обычный десктопный вариант, все элементы в одну строку */
+.Month-Conteiner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* Оставляем элементы в одной строке по умолчанию */
+}
+
+/* Мобильные устройства и планшеты */
+@media (max-width: 1024px) {
+  .Month-Content {
+    max-height: calc(2 * 150px); /* Уменьшаем высоту на планшетах */
+  }
+  .Month-Conteiner {
+    flex-direction: column; /* На мобильных устройствах все элементы идут в колонку */
+  }
+}
+
+/* Для планшетов с разрешением от 1024px до 1224px */
+@media (min-width: 1024px) and (max-width: 1224px) {
+  .Month-Conteiner {
+    flex-direction: row; /* Горизонтальное расположение */
+    flex-wrap: wrap; /* Разрешаем перенос элементов */
+  }
+  .Month-Content {
+    max-height: calc(2 * 150px); /* Уменьшаем высоту на планшетах */
+  }
+  .Month {
+    width: 48%; /* Два элемента рядом, но оставляем небольшой промежуток между ними */
+  }
+
+  /* Третий элемент переносим на новую строку */
+  .Month:nth-child(3) {
+    width: 100%; /* Третий элемент занимает всю ширину */
+  }
+}
